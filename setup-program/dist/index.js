@@ -337,6 +337,9 @@ async function find_program_with_apt(names, version, check_latest) {
       }
     }
 
+    await exec.exec('DEBIAN_FRONTEND=noninteractive')
+    await exec.exec('export TZ=Etc/UTC')
+
     // Install the package name and version that match the requirements
     if (package_match !== null) {
       let install_pkg = package_match
@@ -942,6 +945,7 @@ module.exports = {
   ensureSudoIsAvailable,
   ensureAddAptRepositoryIsAvailable
 }
+
 
 /***/ }),
 
