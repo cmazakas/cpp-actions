@@ -337,9 +337,6 @@ async function find_program_with_apt(names, version, check_latest) {
       }
     }
 
-    // await exec.exec('DEBIAN_FRONTEND=noninteractive', [], {ignoreReturnCode: true})
-    // await exec.exec('export TZ=Etc/UTC', [], {ignoreReturnCode: true})
-
     // Install the package name and version that match the requirements
     if (package_match !== null) {
       let install_pkg = package_match
@@ -351,9 +348,9 @@ async function find_program_with_apt(names, version, check_latest) {
       // Install the package with the best match for the requirements
       let apt_get_exit_code = null
       if (isSudoRequired()) {
-        apt_get_exit_code = await exec.exec(`sudo -n apt-get install -f -y --allow-downgrades ${install_pkg}`, [], {ignoreReturnCode: true})
+        apt_get_exit_code = await exec.exec(`DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC sudo -n apt-get install -f -y --allow-downgrades ${install_pkg}`, [], {ignoreReturnCode: true})
       } else {
-        apt_get_exit_code = await exec.exec(`apt-get install -f -y --allow-downgrades ${install_pkg}`, [], {ignoreReturnCode: true})
+        apt_get_exit_code = await exec.exec(`DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -f -y --allow-downgrades ${install_pkg}`, [], {ignoreReturnCode: true})
       }
 
       if (apt_get_exit_code !== 0) {
@@ -382,9 +379,9 @@ async function find_program_with_apt(names, version, check_latest) {
         log(`Trying alternatives packages [${install_matches.join(', ')}]`)
         for (const install_match of install_matches) {
           if (isSudoRequired()) {
-            apt_get_exit_code = await exec.exec(`sudo -n apt-get install -f -y --allow-downgrades ${install_match}`, [], {ignoreReturnCode: true})
+            apt_get_exit_code = await exec.exec(`DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC sudo -n apt-get install -f -y --allow-downgrades ${install_match}`, [], {ignoreReturnCode: true})
           } else {
-            apt_get_exit_code = await exec.exec(`apt-get install -f -y --allow-downgrades ${install_match}`, [], {ignoreReturnCode: true})
+            apt_get_exit_code = await exec.exec(`DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -f -y --allow-downgrades ${install_match}`, [], {ignoreReturnCode: true})
           }
           if (apt_get_exit_code === 0) {
             break
