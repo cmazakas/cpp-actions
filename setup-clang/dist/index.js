@@ -17445,7 +17445,8 @@ async function find_program_with_apt(names, version, check_latest) {
       const opts = {
           env: {
               DEBIAN_FRONTEND: 'noninteractive',
-              TZ: 'Etc/UTC'
+              TZ: 'Etc/UTC',
+              PATH: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
           },
           ignoreReturnCode: true
       }
