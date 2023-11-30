@@ -337,8 +337,8 @@ async function find_program_with_apt(names, version, check_latest) {
       }
     }
 
-    await exec.exec('DEBIAN_FRONTEND=noninteractive', [], {ignoreReturnCode: true})
-    await exec.exec('export TZ=Etc/UTC', [], {ignoreReturnCode: true})
+    // await exec.exec('DEBIAN_FRONTEND=noninteractive', [], {ignoreReturnCode: true})
+    // await exec.exec('export TZ=Etc/UTC', [], {ignoreReturnCode: true})
 
     // Install the package name and version that match the requirements
     if (package_match !== null) {
