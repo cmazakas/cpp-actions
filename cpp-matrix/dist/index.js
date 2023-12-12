@@ -835,8 +835,12 @@ function generateMatrix(compilerVersions, standards, max_standards, latest_facto
         }
         if ('no-rtti' in entry && entry['no-rtti'] === true) {
           if (entry['compiler'] === 'gcc' || entry['compiler'] === 'clang') {
-            entry['cxxflags'] += ' -fno-rtti -fno-exceptions'
-            entry['ccflags']  += ' -fno-rtti -fno-exceptions'
+            entry['cxxflags'] += ' -fno-rtti'
+            entry['ccflags']  += ' -fno-rtti'
+          }
+
+          if (entry['compiler'] === 'msvc') {
+            entry['cxxflags'] += ' /GR-'
           }
         }
         if ('coverage' in entry && entry['coverage'] === true) {
