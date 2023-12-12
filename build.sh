@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Description: Build all the javascript projects in the repository
 
 projects=("setup-program" "setup-cmake" "setup-gcc" "setup-clang" "setup-cpp" "cmake-workflow" "cpp-matrix")
