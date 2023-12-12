@@ -18,11 +18,14 @@ venv
 cpp_modules
 docs/node_modules
 docs/build
+cpp-matrix/node_modules
 setup-clang/node_modules
 setup-cmake/node_modules
 setup-cpp/node_modules
 setup-gcc/node_modules
 setup-program/node_modules
+cpp-matrix/*-versions.txt
+cpp-matrix/dist/index.js.map
 
 # IDE settings
 .idea
