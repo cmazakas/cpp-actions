@@ -18,6 +18,11 @@ venv
 cpp_modules
 docs/node_modules
 docs/build
+setup-clang/node_modules
+setup-cmake/node_modules
+setup-cpp/node_modules
+setup-gcc/node_modules
+setup-program/node_modules
 
 # IDE settings
 .idea
