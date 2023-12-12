@@ -805,14 +805,12 @@ function generateMatrix(compilerVersions, standards, max_standards, latest_facto
             if (entry['compiler'] === 'gcc' || entry['compiler'] === 'clang') {
                 entry['cxxflags'] += ' -fsanitize=address'
                 entry['ccflags'] += ' -fsanitize=address'
-                entry['build-type'] = 'Debug'
             }
         }
         if ('ubsan' in entry && entry['ubsan'] === true) {
             if (entry['compiler'] === 'gcc' || entry['compiler'] === 'clang') {
                 entry['cxxflags'] += ' -fsanitize=undefined'
                 entry['ccflags'] += ' -fsanitize=undefined'
-                entry['build-type'] = 'Debug'
             }
         }
         if ('msan' in entry && entry['msan'] === true) {
@@ -828,6 +826,12 @@ function generateMatrix(compilerVersions, standards, max_standards, latest_facto
                 entry['ccflags'] += ' -fsanitize=thread'
                 entry['build-type'] = 'Debug'
             }
+        }
+        if ('no-rtti' in entry && entry['no-rtti'] === true) {
+          if (entry['compiler'] === 'gcc' || entry['compiler'] === 'clang') {
+            entry['cxxflags'] += ' -fno-rtti -fno-exceptions'
+            entry['ccflags']  += ' -fno-rtti -fno-exceptions'
+          }
         }
         if ('coverage' in entry && entry['coverage'] === true) {
             if (entry['compiler'] === 'gcc') {
