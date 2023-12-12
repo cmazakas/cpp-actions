@@ -18,6 +18,7 @@ venv
 cpp_modules
 docs/node_modules
 docs/build
+cmake-workflow/node_modules
 cpp-matrix/node_modules
 setup-clang/node_modules
 setup-cmake/node_modules
