@@ -552,7 +552,7 @@ async function main(inputs) {
         }
         if (ccflags) {
             configure_args.push('-D')
-            configure_args.push(`CMAKE_C_FLAGS="${ccflags}"`)
+            configure_args.push(`CMAKE_C_FLAGS=${ccflags}`)
         }
         if (cxx) {
             configure_args.push('-D')
@@ -560,7 +560,7 @@ async function main(inputs) {
         }
         if (cxxflags) {
             configure_args.push('-D')
-            configure_args.push(`CMAKE_CXX_FLAGS="${cxxflags}"`)
+            configure_args.push(`CMAKE_CXX_FLAGS=${cxxflags}`)
         }
         if (cur_cxxstd) {
             configure_args.push('-D')
