@@ -182,6 +182,7 @@ async function run() {
             } else {
                 // Set outputs
                 output_path = compiler_path
+                compiler_path = compiler_path.replaceAll('\\','/')
                 cc = compiler_path
                 cxx = compiler_path.replace(/gcc/g, 'g++').replace(/clang/g, 'clang++')
                 if (!fs.existsSync(cxx)) {
