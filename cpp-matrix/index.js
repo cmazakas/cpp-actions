@@ -835,8 +835,8 @@ function generateMatrix(compilerVersions, standards, max_standards, latest_facto
           }
 
           if (entry['compiler'] === 'msvc') {
-            entry['cxxflags'] += ' /GR-'
-            entry['ccflags']  += ' /GR-'
+            entry['cxxflags'] += ' /GR- /EHsc'
+            entry['ccflags']  += ' /GR- /EHsc'
           }
 
           entry['no-rtti'] = true
